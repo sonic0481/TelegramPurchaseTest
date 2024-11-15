@@ -24,7 +24,7 @@
 //   }
 // });
 
-var currentVersion = "1.0.01";
+var currentVersion = "1.0.02";
 var storedVersion = localStorage.getItem('gameVersion');
 
 if (!storedVersion || storedVersion !== currentVersion) {
@@ -56,16 +56,16 @@ function unityShowBanner(msg, type) {
 }
 
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/TelegramPurchaseTest.loader.js?id=1.0.01";
+var loaderUrl = buildUrl + "/TelegramPurchaseTest.loader.js?id=1.0.02";
 var config = {
-  dataUrl: buildUrl + "/TelegramPurchaseTest.data?id=1.0.01",
-  frameworkUrl: buildUrl + "/TelegramPurchaseTest.framework.js?id=1.0.01",
-  codeUrl: buildUrl + "/TelegramPurchaseTest.wasm?id=1.0.01",
-  symbolsUrl: buildUrl + "/?id=1.0.01",
+  dataUrl: buildUrl + "/TelegramPurchaseTest.data?id=1.0.02",
+  frameworkUrl: buildUrl + "/TelegramPurchaseTest.framework.js?id=1.0.02",
+  codeUrl: buildUrl + "/TelegramPurchaseTest.wasm?id=1.0.02",
+  symbolsUrl: buildUrl + "/?id=1.0.02",
   streamingAssetsUrl: "StreamingAssets",
   companyName: "Monoverse",
   productName: "TelegramPurchase",
-  productVersion: "1.0.01",
+  productVersion: "1.0.02",
 
   // cacheControl: function (url) {
   //   if (url.match(/\.data/) || url.match(/\.bundle/)) {
