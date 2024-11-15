@@ -230,13 +230,23 @@ class TelegramBot {
   }
 
   async sendInvoice_V2( token, invoiceInfo ){
+    const invoice = {
+      title: invoiceInfo.title,
+      description: invoiceInfo.description,
+      payload: invoiceInfo.payload,
+      currency: invoiceInfo.currency,
+      prices: [
+        { label: invoiceInfo.price_label, amount: invoiceInfo.price_star }
+      ]
+    };
+
     const response = await fetch(`https://api.telegram.org/bot${token}/createInvoiceLink`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(invoiceInfo)
-    });
+      body: JSON.stringify(invoice)
+    });``
 
     if (!response.ok) {
       throw new Error(`Failed to invoice: ${response.statusText}`);

@@ -1993,13 +1993,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  3533296: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 3533357: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 3533421: function() {return Module.webglContextAttributes.powerPreference;},  
- 3533479: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 3533534: function($0) {performance.now = function() { return $0; };},  
- 3533582: function($0) {performance.now = function() { return $0; };},  
- 3533630: function() {performance.now = Module['emscripten_get_now_backup'];}
+  3533376: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 3533437: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 3533501: function() {return Module.webglContextAttributes.powerPreference;},  
+ 3533559: function() {Module['emscripten_get_now_backup'] = performance.now;},  
+ 3533614: function($0) {performance.now = function() { return $0; };},  
+ 3533662: function($0) {performance.now = function() { return $0; };},  
+ 3533710: function() {performance.now = Module['emscripten_get_now_backup'];}
 };
 
 
@@ -4482,13 +4482,14 @@ var ASM_CONSTS = {
   	return !!Module.shouldQuit;
   }
 
-  function _SendInvoice_V2( jsonInvoiceInfoPtr ){
+  function _SendInvoice_V2( tokenPtr, jsonInvoiceInfoPtr ){
+      var token = UTF8ToString( tokenPtr );
       var jsonInvoiceInfo = UTF8ToString( jsonInvoiceInfoPtr );
       var invoiceInfo = JSON.parse( jsonInvoiceInfo );
   
       console.log( "Send Invoice Info : ", invoiceInfo );
   
-      TelegramBotInstance.sendInvoice_V2( invoiceInfo ).then( result => {
+      TelegramBotInstance.sendInvoice_V2( token, invoiceInfo ).then( result => {
         unityInstanceRef.SendMessage( "PurchaseStar", "InvoiceSuccess", JSON.stringify(result) );
       } ).catch( error => {
         unityInstanceRef.SendMessage("PurchaseStar", "InvoiceFailed", JSON.stringify(error));  
